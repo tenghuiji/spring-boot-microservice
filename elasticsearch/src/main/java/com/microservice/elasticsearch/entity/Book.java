@@ -2,18 +2,23 @@ package com.microservice.elasticsearch.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
-@Document(indexName = "book", type = "books",shards = 1, replicas = 0)
+@Document(indexName = "book", type = "books",shards = 1, replicas = 0, refreshInterval = "-1")
 public class Book {
     @Id
     private long id;
 
+    @Field
     private String title;
 
+    @Field
     private String author;
 
+    @Field
     private String releaseDate;
 
+    @Field
     private String content;
 
     public Book() {

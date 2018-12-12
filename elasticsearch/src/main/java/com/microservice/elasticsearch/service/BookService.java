@@ -2,7 +2,7 @@ package com.microservice.elasticsearch.service;
 
 import com.microservice.elasticsearch.entity.Book;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 public interface BookService {
     Book save(Book book);
@@ -11,9 +11,9 @@ public interface BookService {
 
     Book findOne(Long id);
 
-    Iterable<Book> findAll();
+    Page<Book> findAll(Pageable pageable);
 
-    Page<Book> findByAuthor(String author, PageRequest pageRequest);
+    Page<Book> findByAuthor(String author, Pageable pageRequest);
 
-    Page<Book> findByTitle(String title, PageRequest pageRequest);
+    Page<Book> findByTitle(String title, Pageable pageRequest);
 }
